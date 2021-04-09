@@ -5,7 +5,18 @@ class TOC extends Component { //컴포넌트 만드는 코드
       var data = this.props.data;
       var i = 0;
       while(i < data.length){
-        lists.push(<li key={data[i].id}><a href={"/content/"+data[i].id}>{data[i].title}</a></li>);
+        lists.push(
+        <li key={data[i].id}>
+          <a href={"/content/"+data[i].id}
+          data-id = {data[i].id}
+          onClick = {function(e){
+            e.target
+            debugger;
+            e.preventDefault();
+            this.props.onChangePage();
+          }.bind(this)}
+          >{data[i].title}</a>
+        </li>);
         i = i+1;
       }
       return (
@@ -19,3 +30,4 @@ class TOC extends Component { //컴포넌트 만드는 코드
   }
 
   export default TOC;
+  
