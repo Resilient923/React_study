@@ -10,10 +10,9 @@ class TOC extends Component { //컴포넌트 만드는 코드
           <a href={"/content/"+data[i].id}
           data-id = {data[i].id}
           onClick = {function(e){
-            e.target
-            debugger;
-            e.preventDefault();
-            this.props.onChangePage();
+           // e.target 에러발생
+          e.preventDefault();
+            this.props.onChangePage(e.target.dataset.id);
           }.bind(this)}
           >{data[i].title}</a>
         </li>);
